@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Letreiro</string>
+    <string name="action_sobre">Sobre o aplicativo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_letreiro">LetreiroActivity</string>
+    <string name="hint_texto">Digite um texto aqui</string>
+    <string name="button_salvar">Exibir letreiro</string>
+    <string name="tamanho_fonte">Tamanho da fonte</string>
+    <string name="tempo_letreiro">Velocidade</string>
+    <string name="piscar_letreiro">Piscar texto</string>
+    <string name="fonte_letreiro_led">Fonte LED</string>
+    <string name="texto_letreiro">Texto do letreiro</string>
+    <string name="nome_fonte_led">bold_led_board-7.ttf</string>
+
+</resources>
