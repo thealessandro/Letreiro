@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
 
 	private int progressoTamanhoTexto;
 	private int progressoVelocidade;
+	private boolean exibirHora;
 	private boolean piscarTexto;
 	private boolean fonteLed;
 	private EditText editTextTexto;
@@ -32,7 +33,9 @@ public class MainActivity extends Activity {
 	private SeekBar seekBarTempo;
 	private CheckBox checkBoxPiscarTexto;
 	private CheckBox checkBoxFonteLed;
+	private CheckBox checkBoxExibirHora;
 	private Button buttonsalvarConfiguracao;
+	private Button buttonLimparTexto;
 	
 
 	public static final String TEXTO = "com.kyxadious.letreiro.texto";
@@ -40,6 +43,7 @@ public class MainActivity extends Activity {
 	public static final String TEMPO_TEXTO = "com.kyxadious.letreiro.tempotexto";
 	public static final String PISCAR_TEXTO = "com.kyxadious.letreiro.piscartexto";
 	public static final String FONTE_LED = "com.kyxadious.letreiro.ponteled";
+	public static final String EXIBIR_HORA = "com.kyxadious.letreiro.exibirhora";
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +54,15 @@ public class MainActivity extends Activity {
 		editTextTexto = (EditText) findViewById(R.id.edit_text_texto);
 		seekBarTamanhoTexto = (SeekBar) findViewById(R.id.seek_bar_tamanho_texto);
 		seekBarTempo = (SeekBar) findViewById(R.id.seek_bar_tempo);
+		checkBoxExibirHora = (CheckBox) findViewById(R.id.exibir_hora_letreiro);
 		checkBoxPiscarTexto = (CheckBox) findViewById(R.id.check_box_piscar);
 		checkBoxFonteLed = (CheckBox) findViewById(R.id.fonte_letreiro_led);
-		buttonsalvarConfiguracao = (Button) findViewById(R.id.button_salvar);
+		buttonsalvarConfiguracao = (Button) findViewById(R.id.button_save);
+		buttonLimparTexto = (Button) findViewById(R.id.button_clear);
 	
 		progressoTamanhoTexto = seekBarTamanhoTexto.getProgress();
 		progressoVelocidade = seekBarTempo.getProgress();
+		exibirHora = checkBoxExibirHora.isChecked();
 		piscarTexto = checkBoxPiscarTexto.isChecked();
 		fonteLed = checkBoxFonteLed.isChecked();
 			
@@ -130,6 +137,21 @@ public class MainActivity extends Activity {
 				fonteLed = isChecked;
 			}
 		});
+		
+		
+		checkBoxExibirHora.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				// TODO Auto-generated method stub
+				Log.d("EXIBIR HORA", String.valueOf(isChecked));
+				exibirHora = isChecked;
+				
+				if(isChecked) {
+					editTextTexto.setText("");
+				}
+			}
+		});
 			
 
 	}
@@ -155,32 +177,43 @@ public class MainActivity extends Activity {
 	
 	public void salvarConfiguracao(View view) {
 		
-		if (editTextTexto.length() != 0) {
-		
-		Intent intent = new Intent(getApplicationContext(), LetreiroActivity.class);
-		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		intent.putExtra(TEXTO, editTextTexto.getText().toString());
-		intent.putExtra(TAMANHO_TEXTO, String.valueOf(progressoTamanhoTexto));
-		intent.putExtra(TEMPO_TEXTO, String.valueOf(progressoVelocidade));
-		intent.putExtra(PISCAR_TEXTO, String.valueOf(piscarTexto));
-		intent.putExtra(FONTE_LED, String.valueOf(fonteLed));
-		startActivity(intent);
-		
+		if (editTextTexto.length() != 0 || exibirHora) {
+			Intent intent = new Intent(getApplicationContext(), LetreiroActivity.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.putExtra(TEXTO, editTextTexto.getText().toString());
+			intent.putExtra(TAMANHO_TEXTO, String.valueOf(progressoTamanhoTexto));
+			intent.putExtra(TEMPO_TEXTO, String.valueOf(progressoVelocidade));
+			intent.putExtra(EXIBIR_HORA, String.valueOf(exibirHora));
+			intent.putExtra(PISCAR_TEXTO, String.valueOf(piscarTexto));
+			intent.putExtra(FONTE_LED, String.valueOf(fonteLed));
+			startActivity(intent);
 		} else {
 			Toast.makeText(getApplicationContext(), "Ops! Nenhum texto digitado, tenha mais sorte da próxima vez :D", Toast.LENGTH_LONG).show();
 		}
 	}
 	
+	public void limparTexto(View view){
+		if (editTextTexto.length() != 0 ) {
+			editTextTexto.setText("");
+		} else {
+			Toast.makeText(getApplicationContext(), "Não tem mais texto cara. Não precisa estuprar o botão!", Toast.LENGTH_LONG).show();
+		}
+	}
 	
 	
 	public void sobreApp(){
 		
+		Intent intent = new Intent(getApplicationContext(), SobreActivity.class);
+		intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+		startActivity(intent);
+		
+		/*
 		AlertDialog.Builder msgBuilder = new AlertDialog.Builder(this);
 		msgBuilder.setTitle("Sobre o aplicativo");
 		msgBuilder.setMessage("Aplicativo desenvolvido por Alessandro Menezes.\nContato: alessandromenezes22@gmail.com");
 		msgBuilder.setPositiveButton("OK", null);
 		msgBuilder.show();
-		
+		*/
 	}
 
 }

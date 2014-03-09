@@ -82,6 +82,13 @@
                 android:orientation="vertical" >
 
                 <CheckBox
+                    android:id="@+id/exibir_hora_letreiro"
+                    style="@style/TemaFonteBranca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/exibir_hora" />
+
+                <CheckBox
                     android:id="@+id/fonte_letreiro_led"
                     style="@style/TemaFonteBranca"
                     android:layout_width="wrap_content"
@@ -97,20 +104,35 @@
             </LinearLayout>
             <!-- Fim checkbox -->
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:gravity="center" >
 
-            <!-- Início do botão salvar -->
-
-            <Button
-                android:id="@+id/button_salvar"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-               	android:paddingTop="10dp"
-                android:layout_marginLeft="80dp"
-                android:layout_marginRight="80dp"
-                android:onClick="salvarConfiguracao"
-                android:text="@string/button_salvar" />
-            <!-- Fim do botão salvar -->
-
+                <!-- Início do botão limpar -->
+                <Button
+                    android:id="@+id/button_clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="limparTexto"
+                    android:paddingTop="10dp"
+                    android:text="@string/button_clear" />
+                <!-- Fim do botão limpar -->
+                
+                
+                <!-- Início do botão salvar -->
+                <Button
+                    android:id="@+id/button_save"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:onClick="salvarConfiguracao"
+                    android:paddingTop="10dp"
+                    android:text="@string/button_save" />
+                <!-- Fim do botão salvar -->
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
