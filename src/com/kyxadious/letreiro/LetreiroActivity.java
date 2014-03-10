@@ -160,7 +160,7 @@ public class LetreiroActivity extends Activity {
 		
 		meuTexto = "       ";
 
-		if (hora == 0) {
+		if (hora <= 9) {
 			meuTexto+= "0"+String.valueOf(hora);
 		} else {
 			meuTexto+= String.valueOf(hora);
