@@ -1,6 +1,6 @@
 Letreiro 
 ========
-Projeto Android - Com o aplicativo Letreiro ficou fácil dar "Alô" em festas. Esse app transforme seu Android em um Display LED.
+Projeto Android - Com o aplicativo Letreiro ficou fácil dar "Alô" em festas. Esse app transforma seu dispositivo Android em um Display LED.
 
 
 Link
