@@ -4,7 +4,7 @@
     <string name="app_name">Letreiro</string>
     <string name="action_sobre">Sobre o aplicativo</string>
     <string name="hello_world">Hello world!</string>
-    <string name="versao_code">Versão 1.0.5</string>
+    <string name="versao_code">Versão 1.0.6</string>
     <string name="desenvolvido_por">Desenvolvido por: Alessandro Menezes</string>
     <string name="email_contato">E-mail: alessandromenezes22@gmail.com</string>
     <string name="hint_texto">Digite um texto aqui</string>
@@ -20,5 +20,6 @@
     <string name="title_activity_letreiro">Letreiro</string>
     <string name="title_activity_sobre">Sobre o Letreiro</string>
     <string name="action_settings">Settings</string>
+    <string name="ad_unit_id">ca-app-pub-2404629022505297/2443944965</string>
 
 </resources>
