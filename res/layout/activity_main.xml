@@ -35,8 +35,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FFF"
                 android:hint="@string/hint_texto"
-                android:singleLine="true"
-                android:textSize="25dp" />
+                android:singleLine="true" />
             <!-- Fim do texto do letreiro -->
 
 
